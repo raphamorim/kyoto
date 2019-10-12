@@ -14,7 +14,7 @@ Super typed programming language powered by [LLVM](https://en.wikipedia.org/wiki
 
 ```erl
 "1" |> String.toInteger |> sum(2) |> log
-# 2
+# 3
 ```
 
 ### WebAssembly

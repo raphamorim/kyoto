@@ -1,4 +1,5 @@
 #include <iostream>
+
 #include "codegen.h"
 #include "node.h"
 
@@ -9,11 +10,10 @@ extern NBlock* programBlock;
 
 void createCoreFunctions(CodeGenContext& context);
 
-int main(int argc, char **argv)
-{
+int main(int argc, char** argv) {
   yyparse();
   cout << programBlock << endl;
-    // see http://comments.gmane.org/gmane.comp.compilers.llvm.devel/33877
+  // see http://comments.gmane.org/gmane.comp.compilers.llvm.devel/33877
   InitializeNativeTarget();
   InitializeNativeTargetAsmPrinter();
   InitializeNativeTargetAsmParser();
