@@ -6,15 +6,30 @@ Lightweight programming language (designed to have very small memory footprint a
 
 ### Features
 
-- Lazy and async collections with streams
+- Lazy and async collections with streams.
+- Built-in types based on unsigned memory.
+- [Memory lifecycle](#memory-usage).
+- Enforces use more bits only when it's really necessary.
 
 ### Example Code
 
 *main.kto*
 
 ```erl
-"1" |> String.toInteger |> sum(2) |> log
+"1" |> String.toInt |> sum(2) |> log
 # 3
+```
+
+*fib.kto*
+
+```go
+fn fibonacci() fn() Int64 {
+    x, y := 0, 1
+    <- fn() Int64 {
+        x, y = y, x + y
+        <- y - x
+    }
+}
 ```
 
 ### WebAssembly
@@ -33,14 +48,20 @@ console.log(fib(13))
 
 ## TODO
 
-- [ ] Primitive Types
- - [ ] Interger
-   - [ ] `int8` (8-bit signed integer)
-   - [ ] `uint8` (8-bit unsigned integer)
-   - [ ] `int16`
-   - [ ] `uint16`
-   - [ ] `int32`
-   - [ ] `uint32`
-   - [ ] `int64`
-   - [ ] `uint64`
- - [ ] `String` (utf-8 encoded textual data type)
+- [ ] Built-in types
+  - [ ]`Int` (8-bit unsigned integer)
+    - Min: –128, Max: 127
+    - [ ] `toString`
+  - [ ] `Int16` (16-bit unsigned integer)
+    - Min: –32768, Max: 32767
+    - [ ] `toString`
+  - [ ] `Int32` (16-bit unsigned integer)
+    - Min: –2147483648, Max: 2147483647
+    - [ ] `toString`
+  - [ ] `Int64` (64-bit unsigned integer)
+    - [ ] `toString`
+  - [ ]`Float` (64-bit unsigned float)
+    - [ ] `toString`
+  - [ ] `Function` (`fn`) A reference to code chunk
+- [ ] Data types
+  - [ ] `String` (UTF-8 encoded binaries representing characters)
