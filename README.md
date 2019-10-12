@@ -4,6 +4,8 @@
 
 Lightweight programming language (designed to have very small memory footprint and with minimalist syntax and features) powered by [LLVM](https://en.wikipedia.org/wiki/LLVM) that have as compilation target: [WebAssembly](https://webassembly.org).
 
+<img src="resources/logo.png" width="300" />
+
 ### Features
 
 - Lazy and async collections with streams.
@@ -49,18 +51,18 @@ console.log(fib(13))
 ## TODO
 
 - [ ] Built-in types
-  - [ ]`Int` (8-bit unsigned integer)
-    - Min: –128, Max: 127
+  - [ ] `Int` (8-bit unsigned integer)
+    - Min: `–128`, Max: `127`
     - [ ] `toString`
   - [ ] `Int16` (16-bit unsigned integer)
-    - Min: –32768, Max: 32767
+    - Min: `–32768`, Max: `32767`
     - [ ] `toString`
   - [ ] `Int32` (16-bit unsigned integer)
-    - Min: –2147483648, Max: 2147483647
+    - Min: `–2147483648`, Max: `2147483647`
     - [ ] `toString`
   - [ ] `Int64` (64-bit unsigned integer)
     - [ ] `toString`
-  - [ ]`Float` (64-bit unsigned float)
+  - [ ] `Float` (64-bit unsigned float)
     - [ ] `toString`
   - [ ] `Function` (`fn`) A reference to code chunk
 - [ ] Data types
