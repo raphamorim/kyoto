@@ -1,11 +1,12 @@
-# Kyoto
+# Kyoto 京
+
+> ポータブルバイナリコードアセンブリのコンパイルに重点を置いて作成された並列プログラミング言語。
 
 Parallel programming language powered by [LLVM](https://en.wikipedia.org/wiki/LLVM) that have as compilation target: [WebAssembly](https://webassembly.org).
 
 ### Features
 
 - Everything is an expression
-- Support for documentation via Python-like docstrings in the Markdown formatting language[25]
 - Lazy and async collections with streams
 
 ### Example Code
