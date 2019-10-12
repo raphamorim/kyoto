@@ -1,0 +1,48 @@
+/* reset */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  line-height: 1em;
+  list-style: none;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+div:after,
+ul:after,
+li:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+hr {
+  display: none;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+body {
+  font: normal normal 20px/1.2em Helvetica, arial;
+  background: #1C1E21;
+  color: #FFF;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
