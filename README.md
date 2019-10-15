@@ -67,3 +67,9 @@ console.log(fib(13))
   - [ ] `Function` (`fn`) A reference to code chunk
 - [ ] Data types
   - [ ] `String` (UTF-8 encoded binaries representing characters)
+
+
+## References
+
+- https://webassembly.github.io/spec/
+- https://gnuu.org/2009/09/18/writing-your-own-toy-compiler/
