@@ -11,7 +11,7 @@ Lightweight programming language (designed to have very small memory footprint a
 - Lazy and async collections with streams.
 - Built-in types based on unsigned memory.
 - [Memory lifecycle](#memory-usage).
-- Enforces use more bits only when it's really necessary.
+- Enforces use more memory only when it's really necessary.
 
 ### Example Code
 
@@ -73,3 +73,4 @@ console.log(fib(13))
 
 - https://webassembly.github.io/spec/
 - https://gnuu.org/2009/09/18/writing-your-own-toy-compiler/
+- https://llvm.org/docs/tutorial/OCamlLangImpl1.html
