@@ -17,7 +17,7 @@ jobs:
 
       - uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
+          toolchain: nightly
 
       - name: Set up Python ${{ env.DEFAULT_PYTHON }}
         id: python
@@ -37,8 +37,8 @@ jobs:
       # - name: Install rustup
       #   run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-      - name: Install the nightly channel
-        run: rustup install nightly && rustup run nightly cargo build
+      # - name: Install the nightly channel
+      #   run: rustup install nightly && rustup run nightly cargo build
 
-      # - name: Build Kyoto
-      #   run: make build
+      - name: Build Kyoto
+        run: make build
