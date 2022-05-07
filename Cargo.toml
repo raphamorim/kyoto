@@ -4,7 +4,7 @@ version = "0.0.1"
 authors = ["Raphael Amorim <rapha850@gmail.com>"]
 
 [dependencies]
-docopt = "0.6"
-regex = "*"
-regex_macros = "*"
-rustc-serialize = "0.3"
+docopt = "1.1.1"
+regex = "1.5.5"
+regex_macros = "0.2.0"
+rustc-serialize = "0.3.24"

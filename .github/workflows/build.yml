@@ -34,11 +34,11 @@ jobs:
           restore-keys: |
             ${{runner.os}}-python-venv-${{ steps.python.outputs.python-version }}-
 
-      - name: Bootstrap GitHub Library
-        env:
-          PIPELINE_LIBRARY_PATH: ${{env.PIPELINE_LIBRARY_PATH}}
-          CACHE_STATUS: ${{steps.venv-cache.outputs.cache-hit}}
-        run: ${{env.PIPELINE_LIBRARY_PATH}}/bootstrap.sh
+      # - name: Install rustup
+      #   run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+      # - name: Install the nightly channel
+      #   run: rustup install nightly && rustup run nightly cargo build
 
       - name: Build Kyoto
         run: make build
