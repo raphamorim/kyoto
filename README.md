@@ -4,8 +4,6 @@
 
 Lightweight programming language (designed to have very small memory footprint and with minimalist syntax and features) powered by [LLVM](https://en.wikipedia.org/wiki/LLVM) that have as compilation target: [WebAssembly](https://webassembly.org).
 
-<img src="resources/logo.png" width="140" />
-
 ```html
 <!-- Will be transformed into WASM by webpack-kyoto-loader -->
 <script type="text/kyoto">

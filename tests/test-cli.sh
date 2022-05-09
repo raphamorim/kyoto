@@ -1,5 +1,3 @@
-#!/bin/bash
-
 throw_error() {
 	echo "\n(!) Kyoto CLI test error: \n • expected $1"
 	exit 1;	
