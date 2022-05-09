@@ -21,13 +21,19 @@ docker-build:
 	docker build -t kyoto -f ./Dockerfile .
 
 s:
-	make build && ./target/release/kyoto --lexer ./main.kto
+	make build && ./target/release/kyoto ./examples/sum.kto
 
 start:
 	./target/release/kyoto
 
 dev:
 	./target/debug/kyoto
+
+test-cli:
+	sh ./tests/test-cli.sh
+
+test:
+	rustup run nightly cargo test $(release)
 
 install:
 	cp target/$(target)/kyoto ~/bin/kyoto-$(extension)

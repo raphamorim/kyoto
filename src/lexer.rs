@@ -71,3 +71,26 @@ pub fn tokenize(input: &str) -> Vec<Token> {
 
     result
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_tokenizer_on_strings() {
+        let s = String::from("Hello");
+        let v = tokenize(&s);
+        assert_eq!(v[0], Ident(s));
+
+        let s = String::from("Hello is it me you are looking for");
+        let v = tokenize(&s);
+        assert_eq!(v[0], Ident("Hello".to_string()));
+        assert_eq!(v[1], Ident("is".to_string()));
+        assert_eq!(v[2], Ident("it".to_string()));
+        assert_eq!(v[3], Ident("me".to_string()));
+        assert_eq!(v[4], Ident("you".to_string()));
+        assert_eq!(v[5], Ident("are".to_string()));
+        assert_eq!(v[6], Ident("looking".to_string()));
+        assert_eq!(v[7], Ident("for".to_string()));
+    }
+}

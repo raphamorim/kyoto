@@ -11,22 +11,26 @@ use clap::Parser;
 #[derive(Parser, Debug)]
 struct Args {
     /// Run only lexer and show its output
+    #[clap(default_value_t = String::from(""))]
+    filepath: String,
+
+    /// Run only lexer and show its output
     #[clap(short, long)]
-    lexer: String,
+    lexer: bool,
 
     /// Run only parser and show its output
     #[clap(short, long)]
-    parser: String,
+    parser: bool,
 
     /// Run only IR builder and show its output
     #[clap(short, long)]
-    ir: String
+    ir: bool
 }
 
 fn main() {
-    let _args = Args::parse();
+    let args = Args::parse();
 
     let stage = Tokens;
 
-    main_loop(stage);
+    main_loop(stage, &args.filepath);
 }

@@ -4,7 +4,7 @@
 
 Lightweight programming language (designed to have very small memory footprint and with minimalist syntax and features) powered by [LLVM](https://en.wikipedia.org/wiki/LLVM) that have as compilation target: [WebAssembly](https://webassembly.org).
 
-<img src="resources/logo.png" width="200" />
+<img src="resources/logo.png" width="140" />
 
 ### Features
 

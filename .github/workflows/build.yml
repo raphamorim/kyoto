@@ -19,3 +19,9 @@ jobs:
 
       - name: Build Kyoto
         run: make build
+
+      - name: Run Tests on CLI
+        run: make test-cli
+
+      - name: Run Kyoto Tests
+        run: make test
