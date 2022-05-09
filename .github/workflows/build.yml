@@ -20,7 +20,7 @@ jobs:
       - name: Build Kyoto
         run: make build
 
-      - name: Run Tests on CLI
+      - name: Run Tests on CLI target
         run: make test-cli
 
       - name: Run Kyoto Tests
