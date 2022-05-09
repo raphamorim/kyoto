@@ -1,6 +1,6 @@
-#![feature(convert)]
+// #![feature(convert)]
 #![feature(plugin)]
-#![plugin(regex_macros)]
+// #![plugin(regex_macros)]
 
 extern crate regex;
 pub mod driver;

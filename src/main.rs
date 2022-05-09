@@ -1,37 +1,31 @@
-extern crate rustc_serialize;
-extern crate docopt;
-
+extern crate clap;
 extern crate kyoto;
 
 use kyoto::driver::{main_loop,
                                 Tokens
 };
 
-use docopt::Docopt;
+use clap::Parser;
 
-const USAGE: &'static str = "
-Usage: kyoto [(-l | -p | -i)]
-Options:
-    -l  Run only lexer and show its output.
-    -p  Run only parser and show its output.
-    -i  Run only IR builder and show its output.
-";
-
-#[derive(Debug, RustcDecodable)]
+/// Kyoto compiler [(-l | -p | -i)]
+#[derive(Parser, Debug)]
 struct Args {
-    flag_l: bool,
-    flag_p: bool,
-    flag_i: bool
+    /// Run only lexer and show its output
+    #[clap(short, long)]
+    lexer: String,
+
+    /// Run only parser and show its output
+    #[clap(short, long)]
+    parser: String,
+
+    /// Run only IR builder and show its output
+    #[clap(short, long)]
+    ir: String
 }
 
 fn main() {
-    let args: Args = Docopt::new(USAGE)
-        .and_then(|d| d.decode())
-        .unwrap_or_else(|e| e.exit());
+    let _args = Args::parse();
 
-    if args.flag_p || args.flag_i {
-        unimplemented!();
-    }
     let stage = Tokens;
 
     main_loop(stage);

@@ -1,22 +1,27 @@
 debug ?=
 
-$(info DEBUG: $(debug))
-
 ifdef debug
 	release :=
 	target :=debug
 	extension :=debug
+	$(info DEBUG: $(debug))
 else
 	release :=--release
 	target :=release
 	extension :=
 endif
 
+# build:
+# 	cargo build $(release)
+
 build:
-	cargo build $(release)
+	rustup run nightly cargo build $(release)
 
 docker-build:
 	docker build -t kyoto -f ./Dockerfile .
+
+s:
+	make build && ./target/release/kyoto --lexer ./main.kto
 
 start:
 	./target/release/kyoto

@@ -18,7 +18,4 @@ jobs:
           toolchain: nightly
 
       - name: Build Kyoto
-        run: rustup run nightly cargo build
-
-      # - name: Build Kyoto
-      #   run: make build
+        run: make build
