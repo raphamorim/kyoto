@@ -6,6 +6,19 @@ Lightweight programming language (designed to have very small memory footprint a
 
 <img src="resources/logo.png" width="140" />
 
+```html
+<!-- Will be transformed into WASM by webpack-kyoto-loader -->
+<script type="text/kyoto">
+  myCustomFuction = String.toInt |> sum(2)
+  export myCustomFuction
+</script>
+<script type="text/javascript">
+  import wasm from "./lib.wasm";
+
+  console.log(wasm.exports.myCustomFuction("1")); // 3
+</script>
+```
+
 ### Features
 
 - Lazy and async collections with streams.
