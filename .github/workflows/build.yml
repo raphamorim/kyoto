@@ -21,7 +21,7 @@ jobs:
         run: make build
 
       - name: Run Tests on CLI target
-        run: sh ./tests/test-cli
+        run: sh ./tests/test-cli.sh
 
       - name: Run Kyoto Tests
         run: make test
