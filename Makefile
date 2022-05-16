@@ -11,11 +11,11 @@ else
 	extension :=
 endif
 
-# build:
-# 	cargo build $(release)
-
 build:
-	rustup run nightly cargo build $(release)
+	cargo build $(release)
+
+build-nigthly:
+	rustup run nigthly cargo build $(release)
 
 docker-build:
 	docker build -t kyoto -f ./Dockerfile .
@@ -33,6 +33,9 @@ test-cli:
 	sh ./tests/test-cli.sh
 
 test:
+	cargo test $(release)
+
+test-nigthly:
 	rustup run nightly cargo test $(release)
 
 install:

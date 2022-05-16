@@ -1,9 +1,7 @@
 extern crate clap;
 extern crate kyoto;
 
-use kyoto::driver::{main_loop,
-                                Tokens
-};
+use kyoto::driver::{main_loop, Tokens};
 
 use clap::Parser;
 
@@ -30,7 +28,5 @@ struct Args {
 fn main() {
     let args = Args::parse();
 
-    let stage = Tokens;
-
-    main_loop(stage, &args.filepath);
+    main_loop(Tokens, &args.filepath);
 }
