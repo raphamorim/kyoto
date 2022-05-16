@@ -4,16 +4,16 @@
 
 Lightweight programming language (designed to have very small memory footprint and with minimalist syntax and features) powered by [LLVM](https://en.wikipedia.org/wiki/LLVM) that have as compilation target: [WebAssembly](https://webassembly.org).
 
+```erl
+pub myCustomFuction = String.toInt |> sum(2)
+```
+
 ```html
 <!-- Will be transformed into WASM by webpack-kyoto-loader -->
-<script type="text/kyoto">
-  myCustomFuction = String.toInt |> sum(2)
-  export myCustomFuction
-</script>
 <script type="text/javascript">
-  import wasm from "./lib.wasm";
+  import myCustomFuction from "./main.kto";
 
-  console.log(wasm.exports.myCustomFuction("1")); // 3
+  console.log(myCustomFuction("1")); // 3
 </script>
 ```
 
@@ -59,7 +59,9 @@ import fib from 'fib.kto';
 console.log(fib(13))
 ```
 
-## TODO
+## TODO `Kyoto 0.0.1`
+
+#### Types
 
 - [ ] Built-in types
   - [ ] `Int` (8-bit unsigned integer)
@@ -78,6 +80,8 @@ console.log(fib(13))
   - [ ] `Function` (`fn`) A reference to code chunk
 - [ ] Data types
   - [ ] `String` (UTF-8 encoded binaries representing characters)
+  - [ ] `Map`
+  - [ ] `List`
 
 
 ## References
