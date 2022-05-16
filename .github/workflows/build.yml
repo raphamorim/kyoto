@@ -17,6 +17,13 @@ jobs:
         with:
           toolchain: stable
 
+      - uses: actions-rs/install@v0.1
+        with:
+          crate: cargo-audit
+          version: latest
+      
+      - run: cargo audit
+
       - name: Build Kyoto
         run: make build
 
