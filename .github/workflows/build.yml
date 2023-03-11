@@ -7,28 +7,20 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PIPELINE_LIBRARY_PATH: ${{ github.workspace }}/.github/library
+      RUSTFLAGS: "-C target-cpu=native"
+      RUST_BACKTRACE: full
+
 
     steps:
       - name: Checkout source Git repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
+      - uses: Swatinem/rust-cache@v2
 
-      - uses: actions-rs/install@v0.1
-        with:
-          crate: cargo-audit
-          version: latest
-      
-      - run: cargo audit
+      - run: rustup toolchain install stable --profile minimal
+      - run: rustup component add rustfmt clippy
+      - run: cargo fetch
+      - run: cargo fmt -- --check --color always
+      - run: cargo clippy --all-targets --all-features -- -D warnings
+      - run: cargo test -p kyoto
 
-      - name: Build Kyoto
-        run: make build
-
-      - name: Run Tests on CLI target
-        run: sh ./tests/test-cli.sh
-
-      - name: Run Kyoto Tests
-        run: make test

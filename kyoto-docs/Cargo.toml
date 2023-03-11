@@ -7,5 +7,5 @@ authors = ["Raphael Amorim <rapha850@gmail.com>"]
 path = "docs.rs"
 name = "docs"
 
-[dependencies]
+[dev-dependencies]
 cargo-server = "0.2.2"
