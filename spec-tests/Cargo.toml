@@ -1,5 +1,5 @@
 [package]
-name = "kyoto-tests"
+name = "spec-tests"
 version = "0.0.1"
 authors = ["Raphael Amorim <rapha850@gmail.com>"]
 

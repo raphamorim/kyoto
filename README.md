@@ -12,7 +12,8 @@ Kyoto allows you to build applications that are platform agnostic since it runs 
 
 ```rust
 
-// pub keyword always enforce function exported type. Which means that “value” will be transformed into a function that returns 8
+// The "pub" keyword always enforce function exported type.
+// which means that “value” will be transformed into a function that returns 8.
 pub value = 8
 
 // This value will be available only in compilation time
