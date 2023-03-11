@@ -28,7 +28,11 @@ hr {
   display: none;
 }
 
-p {
+h1, h2 {
+  line-height: 2.2em;
+}
+
+p, li {
   line-height: 1.5em;
 }
 
@@ -38,11 +42,15 @@ b, strong {
 
 body {
   font: normal normal 20px/1.2em Helvetica, arial;
-  background: #1C1E21;
-  color: #FFF;
+  background: white;
+  color: #333;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 }
 
+.container {
+  margin: 0 auto;
+  width: 820px;
+}

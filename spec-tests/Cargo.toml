@@ -4,5 +4,5 @@ version = "0.0.1"
 authors = ["Raphael Amorim <rapha850@gmail.com>"]
 
 [[bin]]
-path = "run-spec-tests.rs"
+path = "spec-tests.rs"
 name = "tests"

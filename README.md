@@ -4,7 +4,7 @@
 
 Lightweight functional programming language designed to have a small memory footprint with a declarative memory usage.
 
-![Logo Fox Yusuke](resources/logo-rect.png)
+![Logo Fox Yusuke](docs/resources/logo-rect.png)
 
 Kyoto Language has as primary compilation target: [WebAssembly](https://webassembly.org). It’s built for Web and Server usage, see more on compiler spec part.
 

@@ -1,7 +1,6 @@
 [workspace]
 members = [
   "kyoto",
-  "docs",
   "spec-tests"
 ]
 resolver = "2"

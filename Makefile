@@ -1,24 +1,8 @@
-debug ?=
-
-ifdef debug
-	release :=
-	target :=debug
-	extension :=debug
-	$(info DEBUG: $(debug))
-else
-	release :=--release
-	target :=release
-	extension :=
-endif
-
 build:
-	cargo build $(release)
+	cargo build --release
 
 build-nigthly:
-	rustup run nigthly cargo build $(release)
-
-docker-build:
-	docker build -t kyoto -f ./Dockerfile .
+	rustup run nigthly cargo build --release
 
 s:
 	make build && ./target/release/kyoto ./examples/sum.kto
@@ -29,19 +13,16 @@ start:
 dev:
 	./target/debug/kyoto
 
-test-cli:
-	sh ./tests/test-cli.sh
-
 test:
-	cargo test $(release)
+	cargo test --release
 
 test-nigthly:
-	rustup run nightly cargo test $(release)
+	rustup run nightly cargo test --release
 
-install:
-	cp target/$(target)/kyoto ~/bin/kyoto-$(extension)
+docs-run:
+	cd ./docs && cargo server --open
 
-all: build install
- 
-help:
-	@echo "usage: make kyoto [debug=1]"
+docs-build:
+	cd ./docs && make build
+
+all: build
