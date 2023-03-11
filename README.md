@@ -1,28 +1,61 @@
-# Kyoto 京
+# Kyoto Lang
 
-> ポータブルバイナリコードアセンブリのコンパイルに重点を置いて作成された並列プログラミング言語。
+> 京
 
-Lightweight programming language (designed to have very small memory footprint and with minimalist syntax and features) powered by [LLVM](https://en.wikipedia.org/wiki/LLVM) that have as compilation target: [WebAssembly](https://webassembly.org).
+Lightweight functional programming language designed to have a small memory footprint with a declarative memory usage.
 
-```erl
-pub myCustomFuction = String.toInt |> sum(2)
+![Logo Fox Yusuke](resources/logo-rect.png)
+
+Kyoto Language has as primary compilation target: [WebAssembly](https://webassembly.org). It’s built for Web and Server usage, see more on compiler spec part.
+
+Kyoto allows you to build applications that are platform agnostic since it runs on WebAssembly Virtual Machine. However you can also specify compilation target as C programming language or even JavaScript.
+
+```rust
+
+// pub keyword always enforce function exported type. Which means that “value” will be transformed into a function that returns 8
+pub value = 8
+
+// This value will be available only in compilation time
+anotherValue = 5
+
+// This value will be available to use on runtime and compilation time
+mem yetAnotherValue =  85
+
+// Exports “myFunction”
+pub myFunction = mul(2) |> sum(1)
+
 ```
 
-```html
-<!-- Will be transformed into WASM by webpack-kyoto-loader -->
-<script type="text/javascript">
-  import myCustomFuction from "./main.kto";
+You can compile the code above using kyoto compiler and specifying WebAssembly 32 bits and it will produce a .wasm file.
 
-  console.log(myCustomFuction("1")); // 3
-</script>
+```bash
+kyoto main.kto - -target wasm32
 ```
 
-### Features
+The binary produced above can also be represented as the following code written in WebAssembly text format:
 
+```lisp
+(module
+  (func (export “value”) (result i32)
+   i32.const 8
+   return)
+  (func (export "myFunction") (param i32) (result i32)
+    local.get 0
+    i32.const 2
+    i32.mul
+    i32.const 1
+    i32.add
+    return)
+)
+```
+
+## Features
+
+- Primary based on stateless functions
+- Tail call optimisation 
 - Lazy and async collections with streams.
 - Built-in types based on unsigned memory.
-- [Memory lifecycle](#memory-usage).
-- Enforces use more memory only when it's really necessary.
+- Enforces memory usage only when it’s declared.
 
 ### Example Code
 
@@ -45,21 +78,8 @@ fn fibonacci() fn() Int64 {
 }
 ```
 
-### WebAssembly
 
-WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine. Wasm is designed as a portable target for compilation of high-level languages like C/C++/Rust, enabling deployment on the web for client and server applications.
-
-##### Usage with WASM
-
-Kyoto is made and focused exclusively for WASM usage. Here's an example using Kyoto Webpack loader:
-
-```jsx
-import fib from 'fib.kto';
-
-console.log(fib(13))
-```
-
-## TODO `Kyoto 0.0.1`
+## TODO `Kyoto 0.1.0`
 
 #### Types
 
@@ -82,10 +102,3 @@ console.log(fib(13))
   - [ ] `String` (UTF-8 encoded binaries representing characters)
   - [ ] `Map`
   - [ ] `List`
-
-
-## References
-
-- https://webassembly.github.io/spec/
-- https://gnuu.org/2009/09/18/writing-your-own-toy-compiler/
-- https://llvm.org/docs/tutorial/OCamlLangImpl1.html
