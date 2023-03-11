@@ -5,12 +5,12 @@ build-nigthly:
 	rustup run nigthly cargo build --release
 
 s:
-	make build && ./target/release/kyoto ./examples/sum.kto
+	make build && ./target/release/kyoto ./specs-tests/sum.kto
 
-start:
+release:
 	./target/release/kyoto
 
-dev:
+debug:
 	./target/debug/kyoto
 
 test:
