@@ -8,6 +8,12 @@ Lightweight functional programming language designed to have a small memory foot
 
 Kyoto Language has as primary compilation target: [WebAssembly](https://webassembly.org). It’s built for Web and Server usage, see more on compiler spec part.
 
+## Features
+
+- Primary based on stateless functions
+- Lazy evaluation.
+- Enforces memory usage only when it’s declared.
+
 Kyoto allows you to build applications that are platform agnostic since it runs on WebAssembly Virtual Machine. However you can also specify compilation target as C programming language or even JavaScript.
 
 ```rust
@@ -53,56 +59,5 @@ The binary produced above can also be represented as the following code written 
 )
 ```
 
-## Features
+For more information please visit the documentation website: [https://raphamorim.io/kyoto/](https://raphamorim.io/kyoto/)
 
-- Primary based on stateless functions
-- Tail call optimisation 
-- Lazy and async collections with streams.
-- Built-in types based on unsigned memory.
-- Enforces memory usage only when it’s declared.
-
-### Example Code
-
-*main.kto*
-
-```erl
-"1" |> String.toInt |> sum(2) |> log
-# 3
-```
-
-*fib.kto*
-
-```go
-fn fibonacci() fn() Int64 {
-    x, y := 0, 1
-    <- fn() Int64 {
-        x, y = y, x + y
-        <- y - x
-    }
-}
-```
-
-
-## TODO `Kyoto 0.1.0`
-
-#### Types
-
-- [ ] Built-in types
-  - [ ] `Int` (8-bit unsigned integer)
-    - Min: `–128`, Max: `127`
-    - [ ] `toString`
-  - [ ] `Int16` (16-bit unsigned integer)
-    - Min: `–32768`, Max: `32767`
-    - [ ] `toString`
-  - [ ] `Int32` (16-bit unsigned integer)
-    - Min: `–2147483648`, Max: `2147483647`
-    - [ ] `toString`
-  - [ ] `Int64` (64-bit unsigned integer)
-    - [ ] `toString`
-  - [ ] `Float` (64-bit unsigned float)
-    - [ ] `toString`
-  - [ ] `Function` (`fn`) A reference to code chunk
-- [ ] Data types
-  - [ ] `String` (UTF-8 encoded binaries representing characters)
-  - [ ] `Map`
-  - [ ] `List`
