@@ -19,7 +19,7 @@ pub value = 8
 anotherValue = 5
 
 // This value will be available to use on runtime and compilation time
-mem yetAnotherValue =  85
+let yetAnotherValue = 85
 
 // Exports “myFunction”
 pub myFunction = mul(2) |> sum(1)
@@ -29,14 +29,17 @@ pub myFunction = mul(2) |> sum(1)
 You can compile the code above using kyoto compiler and specifying WebAssembly 32 bits and it will produce a .wasm file.
 
 ```bash
-kyoto main.kto - -target wasm32
+kyoto main.kto --target wasm32
 ```
 
 The binary produced above can also be represented as the following code written in WebAssembly text format:
 
 ```lisp
 (module
-  (func (export “value”) (result i32)
+  (memory $mem 1)
+  (export "mem" (memory $mem))
+  (i32.store8 (i32.const 0) (i32.const 0x55))
+  (func (export "value") (result i32)
    i32.const 8
    return)
   (func (export "myFunction") (param i32) (result i32)

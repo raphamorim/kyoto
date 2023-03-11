@@ -1,0 +1,11 @@
+[package]
+name = "kyoto-docs"
+version = "0.0.1"
+authors = ["Raphael Amorim <rapha850@gmail.com>"]
+
+[[bin]]
+path = "docs.rs"
+name = "docs"
+
+[dependencies]
+cargo-server = "0.2.2"
