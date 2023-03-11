@@ -1,14 +1,12 @@
-use std::io;
-use std::fs;
-use std::io::Write;
+pub use self::Stage::Tokens;
 use lexer::*;
-pub use self::Stage::{
-    Tokens
-};
+use std::fs;
+use std::io;
+use std::io::Write;
 
 #[derive(PartialEq, Clone, Debug)]
 pub enum Stage {
-    Tokens
+    Tokens,
 }
 
 pub fn main_loop(stage: Stage, inputfile: &String) {
@@ -18,7 +16,7 @@ pub fn main_loop(stage: Stage, inputfile: &String) {
             Ok(input) => {
                 let tokens = tokenize(input.as_str());
                 println!("{:?}", tokens);
-            },
+            }
             Err(_) => {
                 panic!("Failed trying to read Kyoto (.kto) file")
             }
@@ -34,7 +32,8 @@ pub fn main_loop(stage: Stage, inputfile: &String) {
         print!("> ");
         stdout.flush().unwrap();
         input.clear();
-        stdin.read_line(&mut input).ok().expect("Failed to read line");
+        stdin.read_line(&mut input).ok();
+
         if input.as_str() == ".quit\n" {
             break;
         }
@@ -43,7 +42,7 @@ pub fn main_loop(stage: Stage, inputfile: &String) {
             let tokens = tokenize(input.as_str());
             if stage == Tokens {
                 println!("{:?}", tokens);
-                continue 'main
+                continue 'main;
             }
         }
     }

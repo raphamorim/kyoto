@@ -22,7 +22,7 @@ struct Args {
 
     /// Run only IR builder and show its output
     #[clap(short, long)]
-    ir: bool
+    ir: bool,
 }
 
 fn main() {
