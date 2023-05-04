@@ -6,20 +6,20 @@ Kyoto allows you to build applications that are platform agnostic since it runs 
 
 ```rust
 
-// The "pub" keyword always enforce function exported type.
-// which means that “value” will be transformed 
-// into a function that returns 8.
-pub value = 8
+// Available in
+// compilation time
+*anotherValue = 5;
 
-// This value will be available only in compilation time
-anotherValue = 5
+// Available in
+// runtime and compilation time
+yetAnotherValue = 85;
 
-// This value will be available to use 
-// on runtime and compilation time
-let yetAnotherValue = 85
+// It will be "transformed"
+// into a function that returns 8
+pub fn value = 8;
 
 // Exports “myFunction”
-pub myFunction = mul(2) |> sum(1)
+pub fn myFunction = mul(2) |> sum(1);
 
 ```
 

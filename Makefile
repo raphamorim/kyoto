@@ -1,23 +1,14 @@
 build:
-	cargo build --release
+	cargo build
 
-build-nigthly:
-	rustup run nigthly cargo build --release
-
-s:
+read-file:
 	make build && ./target/release/kyoto ./specs-tests/sum.kto
 
-release:
-	./target/release/kyoto
-
-debug:
-	./target/debug/kyoto
+repl:
+	make build && ./target/release/kyoto
 
 test:
 	cargo test --release
-
-test-nigthly:
-	rustup run nightly cargo test --release
 
 docs-run:
 	cd ./docs && cargo server --open
