@@ -16,6 +16,7 @@ Kyoto Language has as primary compilation target: [WebAssembly](https://webassem
 - Primary based on stateless functions
 - Lazy evaluation.
 - Enforces memory usage only when it’s declared.
+- Easy cross compilation when targeting a browser host or a WASI host (like [Wasmtime](https://github.com/bytecodealliance/wasmtime), [Wasmer](https://github.com/wasmerio/wasmer) and etc).
 
 Kyoto allows you to build applications that are platform agnostic since it runs on WebAssembly Virtual Machine. However you can also specify compilation target as C programming language or even JavaScript.
 

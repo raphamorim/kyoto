@@ -1,1 +1,1 @@
-"1" |> String.toInt |> sum(2) |> log
+pub fn increment = String.toInt |> sum(1);
