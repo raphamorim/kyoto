@@ -1,8 +1,8 @@
 extern crate clap;
 extern crate kyoto;
 
-use std::fs;
 use kyoto::driver::{main_loop, Tokens};
+use std::fs;
 
 use clap::Parser;
 
@@ -25,11 +25,10 @@ struct Args {
 fn main() {
     let args = Args::parse();
     let inputfile = &args.filepath;
-    let data: String;
 
-    if !inputfile.is_empty() && inputfile.ends_with(".kto") {
+    let data = if !inputfile.is_empty() && inputfile.ends_with(".kto") {
         let inputfile = fs::read_to_string(inputfile);
-        data = match inputfile {
+        match inputfile {
             Ok(input) => input,
             Err(err) => {
                 panic!("Failed trying to read Kyoto (.kto) file. {:?}", err)
@@ -37,7 +36,7 @@ fn main() {
         }
     } else {
         panic!("Please provide a valid Kyoto (.kto) file");
-    }
+    };
 
     main_loop(Tokens, data);
 }
