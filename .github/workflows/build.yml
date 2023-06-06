@@ -1,26 +1,20 @@
 name: Build
-
 on: push
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     env:
       RUSTFLAGS: "-C target-cpu=native"
       RUST_BACKTRACE: full
 
-
     steps:
       - name: Checkout source Git repo
         uses: actions/checkout@v3
-
       - uses: Swatinem/rust-cache@v2
-
       - run: rustup toolchain install stable --profile minimal
       - run: rustup component add rustfmt clippy
       - run: cargo fetch
       - run: cargo fmt -- --check --color always
       - run: cargo clippy --all-targets --all-features -- -D warnings
       - run: cargo test -p kyoto
-

@@ -1,17 +1,16 @@
 [workspace]
 members = [
-  "kyoto",
+  "kyc",
   "specs-tests"
 ]
 resolver = "2"
 
 [profile.release]
-opt-level = "z"
+opt-level = "s"
 codegen-units = 1
 lto = true
 
 [profile.dev]
-# https://jakedeichert.com/blog/reducing-rust-incremental-compilation-times-on-macos-by-70-percent/
 split-debuginfo = "unpacked"
 opt-level = 0
 overflow-checks = false
