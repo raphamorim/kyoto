@@ -20,23 +20,19 @@ Kyoto Language has as primary compilation target: [WebAssembly](https://webassem
 
 Kyoto allows you to build applications that are platform agnostic since it runs on WebAssembly Virtual Machine. However you can also specify compilation target as C programming language or even JavaScript.
 
-```rust
+```js
 
-// Available in
-// compilation time
+// Available in compilation time
 *anotherValue = 5;
 
-// Available in
-// runtime and compilation time
+// Available in runtime and compilation time
 yetAnotherValue = 85;
 
 // Exports "myFunction"
-pub fn myFunction = mul(2) |> sum(1);
+export fn myFunction = mul(2) |> sum(1);
 
-// It will be "transformed"
-// into a function that returns 8
-pub fn value = 8;
-
+// It will be "transformed" into a function that returns 8
+export fn value = 8;
 ```
 
 You can compile the code above using kyoto compiler and specifying WebAssembly 32 bits and it will produce a .wasm file.
