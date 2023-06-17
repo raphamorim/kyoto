@@ -1,24 +1,5 @@
 build:
-	cargo build
+	clang kyoto.cpp -lstdc++
 
-read-file:
-	make build && ./target/release/kyoto ./specs-tests/sum.kto
-
-repl:
-	make build && ./target/release/kyoto
-
-lint:
-	cargo fmt -- --check --color always
-	cargo clippy --all-targets --all-features -- -D warnings
-
-test:
-	make lint
-	RUST_BACKTRACE=full cargo test --release
-
-docs-run:
-	cd ./docs && cargo server --open
-
-docs-build:
-	cd ./docs && make build
-
-all: build
+lint-fix:
+	clang-format ./src/*.cc -i

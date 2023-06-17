@@ -1,20 +1,27 @@
-name: Build
-on: push
+name: CI
+
+on:
+  create:
+    tags:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
-  build:
+  lint:
+    name: lint
     runs-on: ubuntu-latest
-    env:
-      RUSTFLAGS: "-C target-cpu=native"
-      RUST_BACKTRACE: full
-
     steps:
-      - name: Checkout source Git repo
-        uses: actions/checkout@v3
-      - uses: Swatinem/rust-cache@v2
-      - run: rustup toolchain install stable --profile minimal
-      - run: rustup component add rustfmt clippy
-      - run: cargo fetch
-      - run: cargo fmt -- --check --color always
-      - run: cargo clippy --all-targets --all-features -- -D warnings
-      - run: cargo test -p kyoto
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - uses: actions/checkout@v1
+    - name: install tools
+      run: |
+        pip3 install flake8==3.7.8
+        sudo apt-get install clang-format
+    - run: flake8
+    - run: ./scripts/clang-format-diff.sh
+      env:
+        GITHUB_EVENT_BEFORE: ${{ github.event.before }}

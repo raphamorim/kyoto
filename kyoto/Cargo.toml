@@ -1,8 +1,0 @@
-[package]
-name = "kyoto"
-version = "0.0.1"
-authors = ["Raphael Amorim <rapha850@gmail.com>"]
-
-[dependencies]
-clap = { version = "3.1.17", features = ["derive"] }
-regex = "1.5.5"

@@ -1,8 +1,0 @@
-[package]
-name = "specs-tests"
-version = "0.0.1"
-authors = ["Raphael Amorim <rapha850@gmail.com>"]
-
-[[bin]]
-path = "spec-tests.rs"
-name = "tests"

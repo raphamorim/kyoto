@@ -1,4 +1,4 @@
-//===- KaleidoscopeJIT.h - A simple JIT for Kaleidoscope --------*- C++ -*-===//
+//===- kyoto.h - A simple JIT for Kyoto --------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -37,12 +37,12 @@
 namespace llvm {
 namespace orc {
 
-class KaleidoscopeJIT {
+class KyotoJIT {
 public:
   using ObjLayerT = LegacyRTDyldObjectLinkingLayer;
   using CompileLayerT = LegacyIRCompileLayer<ObjLayerT, SimpleCompiler>;
 
-  KaleidoscopeJIT()
+  KyotoJIT()
       : Resolver(createLegacyLookupResolver(
             ES,
             [this](const std::string &Name) {
