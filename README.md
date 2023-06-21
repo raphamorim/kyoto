@@ -1,6 +1,4 @@
-# Kyoto Lang
-
-> 京
+# Kyoto Programming Language
 
 Lightweight functional programming language designed to have a small memory footprint with a declarative memory usage.
 

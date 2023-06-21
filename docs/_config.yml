@@ -1,0 +1,60 @@
+url: https://raphamorim.io
+baseurl: /kyoto
+
+name: Kyoto Lang
+description: Kyoto programming language
+keywords: "Kyoto"
+
+domain: raphamorim.io
+commentlinks: true
+twitter-username: raphamorims
+plugins: [jekyll-paginate, jekyll-gist]
+
+source:      .
+destination: ./_site
+paginate_path: "/blog/:num/"
+
+future:      true
+lsi:         false
+highlighter: rouge
+markdown:    kramdown
+permalink:   /:title/
+paginate: 5
+
+# Serving
+detach:  false
+port:    4000
+host:    127.0.0.1
+show_dir_listing: false
+
+maruku:
+  use_tex:    false
+  use_divs:   false
+  png_engine: blahtex
+  png_dir:    images/latex
+  png_url:    /images/latex
+
+collections:
+  my_collection:
+    output: true
+    permalink: /:collection/:name/
+
+rdiscount:
+  extensions: []
+
+kramdown:
+  auto_ids: true,
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+
+  syntax_highlighter_opts:
+    wrap: div
+    line_numbers: inline
+    line_numbers_start: 1
+    tab_width: 4
+    bold_every: 10
+    css: style
+
+excerpt_separator: "<!-- more -->"

@@ -41,16 +41,44 @@ b, strong {
 }
 
 body {
-  font: normal normal 20px/1.2em Helvetica, arial;
-  background: white;
-  color: #333;
+  font: 16px/1.5 Helvetica,arial,nimbussansl,liberationsans,freesans,clean,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  background: #FFF;
+  color: #666;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 }
 
+p {
+  font-weight: lighter;
+  font-style: normal;
+  letter-spacing: -0.004em;
+  font-size: 18px;
+  line-height: 1.5em;
+  margin-top: 20px;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 38px;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 28px;
+}
+
 .container {
   margin: 0 auto;
   width: 820px;
+}
+
+@media (max-width: 620px) {
+  .container {
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px;
+  }
 }

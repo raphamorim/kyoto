@@ -71,15 +71,6 @@ BUILD_TARGET = $($(1)_PREFIX)$($(2)_PREFIX)$($(3)_PREFIX)
 INSTALL_TARGET = install-$($(1)_PREFIX)$($(2)_PREFIX)$($(3)_PREFIX)
 TEST_TARGET = test-$($(1)_PREFIX)$($(2)_PREFIX)$($(3)_PREFIX)
 
-.PHONY: all install test
-all: $(DEFAULT_SUFFIX)
-install: install-$(DEFAULT_SUFFIX)
-test: test-$(DEFAULT_SUFFIX)
-
-.PHONY: clean
-clean:
-	rm -rf out
-
 define CMAKE
 $(call CMAKE_DIR,$(1),$(2),$(3)):
 	mkdir -p $(call CMAKE_DIR,$(1),$(2),$(3))
@@ -95,6 +86,15 @@ $(call BUILD_TARGET,$(1),$(2),$(3)): $(call CMAKE_DIR,$(1),$(2),$(3))$$(BUILD_FI
 	$$(BUILD_CMD) -C $(call CMAKE_DIR,$(1),$(2),$(3)) all
 endef
 
+.PHONY: all install test docs
+all: $(DEFAULT_SUFFIX)
+install: install-$(DEFAULT_SUFFIX)
+test: test-$(DEFAULT_SUFFIX)
+
+.PHONY: clean
+clean:
+	rm -rf out
+
 all: clang-debug
 
 build-clang:
@@ -106,13 +106,14 @@ build-dev:
 lint-fix:
 	clang-format ./src/*.cc -i
 
+docs:
+	cd docs && make run
+
 # running CMake
 $(foreach CONFIG,$(CONFIGS), \
 	$(foreach COMPILER,$(COMPILERS), \
 		$(foreach BUILD_TYPE,$(BUILD_TYPES), \
 			$(eval $(call CMAKE,$(COMPILER),$(BUILD_TYPE),$(CONFIG))))))
-clang-debug:
-	cmake clang release
 
 # building
 $(foreach CONFIG,$(CONFIGS), \
