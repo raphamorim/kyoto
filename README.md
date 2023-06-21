@@ -77,3 +77,28 @@ The binary produced above can also be represented as the following code written 
 ```
 
 For more information please visit the documentation website: [https://raphamorim.io/kyoto/](https://raphamorim.io/kyoto/).
+
+## Building using CMake directly (Linux and macOS)
+
+You'll need [CMake](https://cmake.org). You can then run CMake, the normal way:
+
+```console
+$ mkdir build
+$ cd build
+$ cmake ..
+$ cmake --build .
+```
+
+This will produce build files using CMake's default build generator. Read the CMake documentation for more information.
+
+## Building using the top-level `Makefile` (Linux and macOS)
+
+**NOTE**: Under the hood, this uses `make` to run CMake, which then calls `ninja` to perform that actual build.  On some systems (typically macOS), this doesn't build properly. If you see these errors, you can build using CMake directly as described above.
+
+You'll need [CMake](https://cmake.org) and [Ninja](https://ninja-build.org). If you just run `make`, it will run CMake for you, and put the result in `out/clang/Debug/` by default:
+
+> Note: If you are on macOS, you will need to use CMake version 3.2 or higher
+
+```console
+$ make
+```
