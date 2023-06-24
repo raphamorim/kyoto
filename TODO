@@ -1,7 +1,14 @@
-- [ ] Line Comments (`//`)
-	- Tests [ ]
-- [ ] Multiline Comments (`/* */`)
-	- Tests [ ]
-- [ ] Delimiter (`;`)
+import ("fmt")
+
+// Similar to WASM _start:
+func () {
+  fmt.print("Hello World!")
+}
+
+
+// Similar to WASM _start:
+export func main() {
+  fmt.print("Hello World!")
+}
 
 https://github.com/bytecodealliance/cranelift-jit-demo

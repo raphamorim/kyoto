@@ -11,32 +11,28 @@ Kyoto Language has as primary compilation target: [WebAssembly](https://webassem
 
 ## Features
 
-- Primary based on stateless functions
-- Lazy evaluation.
-- Enforces memory usage only when it’s declared.
+- LLVM based.
 - Easy cross compilation when targeting a browser host or a WASI host (like [Wasmtime](https://github.com/bytecodealliance/wasmtime), [Wasmer](https://github.com/wasmerio/wasmer) and etc).
 
 Kyoto allows you to build applications that are platform agnostic since it runs on WebAssembly Virtual Machine. However you can also specify compilation target as C programming language or even JavaScript.
 
 ```js
+// Available in runtime only
+var runtimeValue = 8;
 
-// Available in compilation time
-*anotherValue = 5;
+// Available in compilation and runtime
+var value := 5;
 
-// Available in runtime and compilation time
-yetAnotherValue = 85;
-
-// Exports "myFunction"
-export fn myFunction = mul(2) |> sum(1);
-
-// It will be "transformed" into a function that returns 8
-export fn value = 8;
+// Similar to WASM _start:
+export fn main() {
+  print("My value is ", value);
+}
 ```
 
-You can compile the code above using kyoto compiler and specifying WebAssembly 32 bits and it will produce a .wasm file.
+You can compile the code above using kyoto compiler to WebAssembly 32 bits and it will produce a .wasm file.
 
 ```bash
-kyoto main.kto --target wasm32 -o module.wasm
+kyoto main.kto -o module.wasm
 ```
 
 It will produce `module.wasm` with the following data:
