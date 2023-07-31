@@ -5,3 +5,5 @@ build
 *.pyc
 .idea/
 .vscode/
+.jekyll-cache
+.jekyll-metadata
